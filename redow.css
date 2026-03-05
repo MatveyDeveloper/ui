@@ -1,0 +1,122 @@
+/* 1. ГЛОБАЛЬНЫЙ СТИЛЬ "ЖИДКОЕ СТЕКЛО" */
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass-blur: blur(15px);
+            --primary-glow: #00d2ff;
+            --text-color: #ffffff;
+            --accent: #9d50bb;
+        }
+
+        /* Фон страницы (анимированный градиент для эффекта стекла) */
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            background: linear-gradient(45deg, #0f172a, #334155, #1e1b4b);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: var(--text-color);
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            min-height: 100vh;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; }
+
+        /* 2. АВТО-СТИЛИЗАЦИЯ КАЖДОГО ЭЛЕМЕНТА (БЕЗ ИСКЛЮЧЕНИЙ) */
+
+        /* Заголовки */
+        h1, h2, h3 {
+            text-shadow: 0 0 20px rgba(255,255,255,0.3);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Глобальный эффект стекла для всех блоков (Section, Article, Div) */
+        section, .card {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        /* Кнопки (Жидкий неон) */
+        button, .rd-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(5px);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        button:hover {
+            background: var(--primary-glow);
+            box-shadow: 0 0 30px var(--primary-glow);
+            transform: scale(1.05);
+            border-color: white;
+        }
+
+        /* Поля ввода (Прозрачный лед) */
+        input, textarea, select {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            padding: 15px;
+            border-radius: 15px;
+            color: white;
+            width: 100%;
+            margin-bottom: 20px;
+            outline: none;
+            transition: 0.3s;
+        }
+        input:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--primary-glow);
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
+        }
+
+        /* Таблицы (Стеклянные соты) */
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 10px;
+        }
+        th { padding: 15px; text-align: left; opacity: 0.7; font-size: 13px; }
+        td {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        td:first-child { border-left: 1px solid var(--glass-border); border-radius: 15px 0 0 15px; }
+        td:last-child { border-right: 1px solid var(--glass-border); border-radius: 0 15px 15px 0; }
+
+        /* Списки и ссылки */
+        ul { list-style: none; padding: 0; }
+        li {
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.02);
+            margin-bottom: 8px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary-glow);
+        }
+        a { color: var(--primary-glow); text-decoration: none; transition: 0.3s; }
+        a:hover { text-shadow: 0 0 10px var(--primary-glow); }
+
+        /* Полоса прокрутки (Scrollbar) */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--glass-border); border-radius: 10px; }
