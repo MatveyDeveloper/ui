@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>redow.code — архитектура будущего</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MatveyDeveloper/ui@main/redow.css">
+
+    <style>
+        :root {
+            --accent: #9d50bb;
+            --bg-dark: #050505;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg-dark);
+            color: white;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Анимированный фон */
+        .bg-glow {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .blob {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(157, 80, 187, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(100px);
+            animation: move 25s infinite alternate;
+        }
+
+        .blob:nth-child(2) {
+            background: radial-gradient(circle, rgba(0, 210, 255, 0.04) 0%, transparent 70%);
+            width: 1000px;
+            height: 1000px;
+            animation-duration: 35s;
+            animation-delay: -7s;
+            right: -200px;
+            bottom: -200px;
+        }
+
+        @keyframes move {
+            from { transform: translate(-20%, -20%); }
+            to { transform: translate(40%, 30%); }
+        }
+
+        /* Навигация */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 30px 60px;
+            box-sizing: border-box;
+            z-index: 1000;
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-decoration: none;
+            color: white;
+            text-transform: lowercase;
+        }
+
+        .logo span { color: var(--accent); }
+
+        /* Главный экран */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 12vw, 8rem);
+            margin: 0;
+            line-height: 0.85;
+            letter-spacing: -5px;
+            text-transform: lowercase;
+            font-weight: 900;
+        }
+
+        .hero p {
+            max-width: 550px;
+            font-size: 1.1rem;
+            opacity: 0.5;
+            margin-top: 30px;
+            line-height: 1.5;
+        }
+
+        /* Сетка контента */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 100px 40px;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        section {
+            background: rgba(255, 255, 255, 0.02) !important;
+            border: 1px solid rgba(255, 255, 255, 0.07) !important;
+            padding: 40px !important;
+            border-radius: 32px !important;
+            transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        section:hover {
+            border-color: rgba(157, 80, 187, 0.4) !important;
+            transform: translateY(-10px);
+            background: rgba(157, 80, 187, 0.03) !important;
+        }
+
+        .span-2 { grid-column: span 2; }
+
+        h2 { font-size: 2rem; letter-spacing: -1px; text-transform: lowercase; margin-top: 10px; }
+        small { color: var(--accent); font-weight: bold; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* Кнопка */
+        .btn-main {
+            margin-top: 50px;
+            background: white;
+            color: black;
+            padding: 20px 50px;
+            border-radius: 100px;
+            font-weight: 800;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.3s;
+            text-transform: lowercase;
+        }
+
+        .btn-main:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(157, 80, 187, 0.3);
+        }
+
+        .footer {
+            padding: 120px 40px;
+            text-align: center;
+            opacity: 0.3;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 900px) {
+            .bento-grid { grid-template-columns: 1fr; }
+            .span-2 { grid-column: span 1; }
+            nav { padding: 20px 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow">
+        <div class="blob"></div>
+        <div class="blob"></div>
+    </div>
+
+    <nav>
+        <a href="#" class="logo">redow<span>.</span>code</a>
+        <div style="display: flex; gap: 40px;">
+            <a href="#work" style="color:white; text-decoration:none; font-size: 0.9rem; opacity: 0.6;">продукты</a>
+            <a href="mailto:gastgrief@gmail.com" style="color:var(--accent); text-decoration:none; font-size: 0.9rem; font-weight: bold;">связаться</a>
+        </div>
+    </nav>
+
+    <section class="hero" style="background: none !important; border: none !important;">
+        <h1>redow.code</h1>
+        <p>создаем дизайн-системы, которые меняют правила игры. чистый код, жидкое стекло и неограниченная скорость.</p>
+        <a href="#work" class="btn-main">посмотреть кейсы</a>
+    </section>
+
+    <div class="container" id="work">
+        <div class="bento-grid">
+            <section class="span-2">
+                <small>01 / system</small>
+                <h2>liquid glass v5.0</h2>
+                <p>наша фирменная библиотека стилей. глубокое матовое размытие, которое работает даже на мобильных устройствах без потери fps.</p>
+            </section>
+
+            <section>
+                <small>02 / tech</small>
+                <h2>cloud cdn</h2>
+                <p>ваш интерфейс всегда актуален. правки в одном файле обновляют тысячи сайтов мгновенно.</p>
+            </section>
+
+            <section>
+                <small>03 / tool</small>
+                <h2>architect</h2>
+                <p>внутренний визуальный редактор для партнеров. стройте сайты со скоростью мысли.</p>
+            </section>
+
+            <section class="span-2">
+                <small>04 / mission</small>
+                <h2>будущее уже здесь</h2>
+                <p>мы не просто делаем сайты. мы проектируем цифровой опыт, который заставляет пользователей влюбляться в ваш продукт с первого пикселя.</p>
+            </section>
+        </div>
+    </div>
+
+    <div style="text-align: center; padding: 100px 20px;">
+        <h2 style="font-size: 4rem; letter-spacing: -3px; text-transform: lowercase;">готовы к <span style="color: var(--accent);">взлету</span>?</h2>
+        <a href="mailto:gastgrief@gmail.com" class="btn-main" style="background: var(--accent); color: white;">написать нам</a>
+    </div>
+
+    <footer class="footer">
+        © 2026 redow.code — matvey developer — all systems nominal
+    </footer>
+
+</body>
+</html>
