@@ -1,0 +1,50 @@
+/* REDOW.CODE — CYBER DARK UI */
+:root {
+    --rd-bg: #000000;
+    --rd-glass: rgba(255, 255, 255, 0.03);
+    --rd-border: #333333;
+    --rd-text: #ffffff;
+    --rd-accent: #ffffff;
+}
+
+body {
+    background: #000;
+    color: var(--rd-text);
+    font-family: 'Courier New', monospace; /* Кодерский стиль */
+    margin: 0; padding: 40px 20px;
+}
+
+section, .card {
+    background: var(--rd-glass);
+    border: 1px solid var(--rd-border);
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+h1, h2, h3 {
+    color: var(--rd-accent);
+    border-bottom: 1px solid var(--rd-border);
+    padding-bottom: 10px;
+}
+
+button {
+    background: #fff;
+    color: #000;
+    border: 1px solid #fff;
+    padding: 12px 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #000;
+    color: #fff;
+}
+
+input {
+    background: #000;
+    border: 1px solid var(--rd-border);
+    color: #fff;
+    padding: 10px;
+}
