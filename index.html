@@ -3,25 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>redow.code — liquid design systems</title>
+    <title>redow.code — экосистема визуальных ядер</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        accent: '#9d50bb',
-                        dark: '#050505',
-                    },
-                    animation: {
-                        'blob': 'blob 20s infinite alternate',
-                    },
+                    colors: { accent: '#9d50bb', dark: '#050505' },
+                    animation: { 'blob': 'blob 25s infinite alternate' },
                     keyframes: {
                         blob: {
-                            'from': { transform: 'translate(-10%, -10%) scale(1)' },
-                            'to': { transform: 'translate(30%, 20%) scale(1.2)' },
+                            'from': { transform: 'translate(-5%, -5%) scale(1)' },
+                            'to': { transform: 'translate(20%, 15%) scale(1.1)' },
                         }
                     }
                 }
@@ -31,88 +26,125 @@
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #050505; color: white; }
         .glass { 
-            background: rgba(255, 255, 255, 0.03); 
-            backdrop-filter: blur(12px); 
-            border: 1px solid rgba(255, 255, 255, 0.08); 
+            background: rgba(255, 255, 255, 0.02); 
+            backdrop-filter: blur(15px); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .glass:hover {
-            border-color: rgba(157, 80, 187, 0.4);
-            background: rgba(157, 80, 187, 0.05);
+            border-color: rgba(157, 80, 187, 0.3);
+            background: rgba(157, 80, 187, 0.04);
         }
+        code { font-family: monospace; }
     </style>
 </head>
 <body class="antialiased overflow-x-hidden">
 
     <div class="fixed inset-0 -z-10 overflow-hidden">
-        <div class="absolute -top-[10%] -left-[10%] w-[600px] h-[600px] bg-accent/20 rounded-full blur-[120px] animate-blob"></div>
-        <div class="absolute bottom-[10%] -right-[10%] w-[800px] h-[800px] bg-blue-500/10 rounded-full blur-[150px] animate-blob" style="animation-delay: -5s;"></div>
+        <div class="absolute top-0 -left-10 w-[700px] h-[700px] bg-accent/10 rounded-full blur-[120px] animate-blob"></div>
+        <div class="absolute bottom-0 -right-10 w-[900px] h-[900px] bg-blue-900/10 rounded-full blur-[150px] animate-blob" style="animation-delay: -7s;"></div>
     </div>
 
-    <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-black/20 backdrop-blur-lg">
+    <nav class="fixed top-0 w-full z-50 border-b border-white/5 bg-black/40 backdrop-blur-xl">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
             <a href="#" class="text-xl font-black tracking-tighter lowercase">redow<span class="text-accent">.</span>code</a>
-            <div class="flex gap-8 text-sm font-medium opacity-70">
-                <a href="#services" class="hover:text-accent hover:opacity-100 transition-all">услуги</a>
-                <a href="#about" class="hover:text-accent hover:opacity-100 transition-all">о нас</a>
-                <a href="mailto:gastgrief@gmail.com" class="text-accent opacity-100 font-bold">контакт</a>
+            <div class="hidden md:flex gap-10 text-[11px] uppercase tracking-[0.2em] font-bold opacity-60">
+                <a href="#cores" class="hover:text-accent transition-all">ядра</a>
+                <a href="#install" class="hover:text-accent transition-all">установка</a>
+                <a href="#services" class="hover:text-accent transition-all">сервисы</a>
+                <a href="mailto:gastgrief@gmail.com" class="text-accent">контакт</a>
             </div>
         </div>
     </nav>
 
-    <section class="relative h-screen flex flex-col items-center justify-center px-6 text-center">
-        <h1 class="text-[clamp(3.5rem,12vw,8.5rem)] font-black leading-[0.85] tracking-[-0.05em] lowercase">
+    <section class="h-screen flex flex-col items-center justify-center px-6 text-center">
+        <h1 class="text-[clamp(3.5rem,15vw,9rem)] font-black leading-[0.8] tracking-[-0.06em] lowercase">
             redow.code
         </h1>
-        <p class="mt-8 max-w-xl text-lg md:text-xl opacity-50 font-light leading-relaxed">
-            архитектура цифрового превосходства. создаем интерфейсы, которые выглядят как будущее и работают быстрее мысли.
+        <p class="mt-8 max-w-xl text-lg opacity-40 font-light lowercase">
+            дизайн-системы, которые подключаются одной строчкой. быстро. стильно. бесплатно.
         </p>
-        <a href="#services" class="mt-12 px-10 py-5 bg-white text-black rounded-full font-black text-sm hover:bg-accent hover:text-white hover:scale-105 transition-all duration-300 shadow-2xl shadow-accent/20">
-            исследовать системы
+        <a href="#install" class="mt-12 px-10 py-5 bg-white text-black rounded-full font-black text-xs uppercase hover:bg-accent hover:text-white transition-all">
+            подключить сейчас
         </a>
     </section>
 
-    <div class="max-w-7xl mx-auto px-6 py-24" id="services">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+    <section class="max-w-7xl mx-auto px-6 py-32 border-t border-white/5" id="cores">
+        <h2 class="text-4xl font-black tracking-tighter lowercase mb-16">визуальные <span class="text-accent">ядра</span></h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             
-            <div class="glass md:col-span-2 p-10 rounded-[2.5rem] transition-all duration-500">
-                <span class="text-accent text-xs font-bold tracking-widest uppercase">01 / core</span>
-                <h2 class="text-3xl font-bold mt-4 tracking-tight lowercase">liquid architecture</h2>
-                <p class="mt-4 opacity-50 leading-relaxed">наша собственная методология построения интерфейсов. максимальная глубина стекла без потери производительности.</p>
+            <div class="glass p-10 rounded-[3rem] relative overflow-hidden group border-purple-500/10">
+                <small class="text-purple-500 font-bold tracking-widest uppercase text-[10px]">core 01</small>
+                <h3 class="text-3xl font-black mt-2 lowercase">redow.css</h3>
+                <p class="mt-6 text-sm opacity-50 leading-relaxed">Фирменное жидкое стекло. Фиолетовый неон и мягкие тени. Идеально для современных лендингов.</p>
+                <div class="mt-8 pt-6 border-t border-white/5">
+                    <p class="text-[10px] text-purple-400 mb-2 uppercase tracking-widest">индекс стиля: 100%</p>
+                    <div class="h-1 bg-purple-900/30 rounded-full overflow-hidden">
+                        <div class="h-full bg-purple-500 w-full"></div>
+                    </div>
+                </div>
             </div>
 
-            <div class="glass p-10 rounded-[2.5rem] transition-all duration-500">
-                <span class="text-accent text-xs font-bold tracking-widest uppercase">02 / sync</span>
-                <h2 class="text-3xl font-bold mt-4 tracking-tight lowercase">cloud engine</h2>
-                <p class="mt-4 opacity-50 leading-relaxed">дизайн как сервис. мгновенная синхронизация стилей через глобальные узлы.</p>
+            <div class="glass p-10 rounded-[3rem] relative overflow-hidden group border-yellow-500/10">
+                <small class="text-yellow-500 font-bold tracking-widest uppercase text-[10px]">core 02</small>
+                <h3 class="text-3xl font-black mt-2 lowercase">gold.css</h3>
+                <p class="mt-6 text-sm opacity-50 leading-relaxed">Премиальный минимализм. Золотистые акценты и теплая палитра для элитных интерфейсов.</p>
+                <div class="mt-8 pt-6 border-t border-white/5">
+                    <p class="text-[10px] text-yellow-400 mb-2 uppercase tracking-widest">индекс стиля: 85%</p>
+                    <div class="h-1 bg-yellow-900/30 rounded-full overflow-hidden">
+                        <div class="h-full bg-yellow-500 w-[85%]"></div>
+                    </div>
+                </div>
             </div>
 
-            <div class="glass p-10 rounded-[2.5rem] transition-all duration-500">
-                <span class="text-accent text-xs font-bold tracking-widest uppercase">03 / tool</span>
-                <h2 class="text-3xl font-bold mt-4 tracking-tight lowercase">architect</h2>
-                <p class="mt-4 opacity-50 leading-relaxed">no-code решение для быстрой сборки премиальных лендингов.</p>
-            </div>
-
-            <div class="glass md:col-span-2 p-10 rounded-[2.5rem] transition-all duration-500">
-                <span class="text-accent text-xs font-bold tracking-widest uppercase">04 / future</span>
-                <h2 class="text-3xl font-bold mt-4 tracking-tight lowercase">next-gen interfaces</h2>
-                <p class="mt-4 opacity-50 leading-relaxed">мы проектируем завтрашний день. в 2026 году ваш бизнес должен выглядеть именно так.</p>
+            <div class="glass p-10 rounded-[3rem] relative overflow-hidden group border-cyan-500/10">
+                <small class="text-cyan-400 font-bold tracking-widest uppercase text-[10px]">core 03</small>
+                <h3 class="text-3xl font-black mt-2 lowercase">cyber.css</h3>
+                <p class="mt-6 text-sm opacity-50 leading-relaxed">Техногенный хай-тек. Высокий контраст, циановые блики и агрессивные формы.</p>
+                <div class="mt-8 pt-6 border-t border-white/5">
+                    <p class="text-[10px] text-cyan-400 mb-2 uppercase tracking-widest">индекс стиля: 95%</p>
+                    <div class="h-1 bg-cyan-900/30 rounded-full overflow-hidden">
+                        <div class="h-full bg-cyan-400 w-[95%]"></div>
+                    </div>
+                </div>
             </div>
 
         </div>
-    </div>
-
-    <section class="py-32 px-6 text-center" id="about">
-        <h2 class="text-5xl md:text-7xl font-black tracking-tighter lowercase">
-            готовы к <span class="text-accent">трансформации</span>?
-        </h2>
-        <p class="mt-6 opacity-40 max-w-2xl mx-auto">присоединяйтесь к числу компаний, которые уже используют redow для доминирования в цифровом пространстве.</p>
-        <a href="mailto:gastgrief@gmail.com" class="mt-10 inline-block text-accent font-bold text-lg border-b-2 border-accent hover:opacity-50 transition-all">
-            gastgrief@gmail.com
-        </a>
     </section>
 
-    <footer class="py-20 border-t border-white/5 text-center text-[10px] tracking-[0.3em] opacity-30 uppercase">
-        © 2026 redow.code — matvey developer — all systems nominal
+    <section class="max-w-4xl mx-auto px-6 py-32 border-t border-white/5" id="install">
+        <h2 class="text-4xl font-black tracking-tighter lowercase mb-8 text-center">быстрый <span class="text-accent">старт</span></h2>
+        <p class="text-center opacity-50 mb-12 lowercase">просто вставь одну из этих строк в тег &lt;head&gt; своего проекта</p>
+        
+        <div class="space-y-4">
+            <div class="glass p-6 rounded-2xl flex flex-col md:flex-row justify-between items-center gap-4">
+                <span class="text-purple-400 font-bold">redow.css</span>
+                <code class="bg-black/40 p-3 rounded-lg text-[10px] md:text-xs text-white/80 w-full md:w-auto overflow-x-auto">
+                    &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MatveyDeveloper/ui@main/redow.css"&gt;
+                </code>
+            </div>
+            <div class="glass p-6 rounded-2xl flex flex-col md:flex-row justify-between items-center gap-4">
+                <span class="text-yellow-500 font-bold">gold.css</span>
+                <code class="bg-black/40 p-3 rounded-lg text-[10px] md:text-xs text-white/80 w-full md:w-auto overflow-x-auto">
+                    &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MatveyDeveloper/ui@main/gold.css"&gt;
+                </code>
+            </div>
+            <div class="glass p-6 rounded-2xl flex flex-col md:flex-row justify-between items-center gap-4">
+                <span class="text-cyan-400 font-bold">cyber.css</span>
+                <code class="bg-black/40 p-3 rounded-lg text-[10px] md:text-xs text-white/80 w-full md:w-auto overflow-x-auto">
+                    &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MatveyDeveloper/ui@main/cyber.css"&gt;
+                </code>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-20 border-t border-white/5 text-center px-6">
+        <a href="#" class="text-2xl font-black tracking-tighter lowercase">redow<span class="text-accent">.</span>code</a>
+        <p class="mt-6 text-[10px] tracking-[0.4em] opacity-30 uppercase">© 2026 redow.code corp — matvey developer</p>
+        <div class="mt-8 flex justify-center gap-8 text-xs font-bold opacity-40 lowercase">
+            <a href="https://github.com/MatveyDeveloper" class="hover:text-accent transition-all">github</a>
+            <a href="mailto:gastgrief@gmail.com" class="hover:text-accent transition-all">email</a>
+        </div>
     </footer>
 
 </body>
