@@ -1,0 +1,51 @@
+/* REDOW.CODE — LUXURY GOLD UI */
+:root {
+    --rd-bg-dark: #1a1a1a;
+    --rd-main-gold: #ffd700;
+    --rd-glass: rgba(255, 215, 0, 0.05);
+    --rd-border: rgba(255, 215, 0, 0.3);
+    --rd-text: #ffffff;
+    --rd-blur: blur(15px);
+}
+
+body {
+    background: radial-gradient(circle at top left, #332b00, #1a1a1a);
+    background-attachment: fixed;
+    color: var(--rd-text);
+    font-family: 'Georgia', serif; /* Более элегантный шрифт */
+    margin: 0; padding: 40px 20px;
+}
+
+section, .card {
+    background: var(--rd-glass);
+    backdrop-filter: var(--rd-blur);
+    border: 1px solid var(--rd-border);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+}
+
+h1, h2, h3 {
+    color: var(--rd-main-gold);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    text-transform: uppercase;
+}
+
+button {
+    background: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728);
+    color: #000;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 4px; /* Более строгие углы */
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    box-shadow: 0 0 20px var(--rd-main-gold);
+    transform: scale(1.05);
+}
+
+table th { background: rgba(255, 215, 0, 0.1); color: var(--rd-main-gold); }
